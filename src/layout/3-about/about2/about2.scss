@@ -1,0 +1,11 @@
+.about.two{
+  .text-div {
+    .text {
+      a {
+        &::after {
+          background-color: var(--Soft-red);
+        }
+      }
+    }   
+  }
+}

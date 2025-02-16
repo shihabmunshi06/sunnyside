@@ -1,0 +1,65 @@
+@use "../../a-sass/base/abstracts.scss" as *;
+
+footer {
+  height: auto !important;
+  .img-wrapper {
+    height: 50vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .footer {
+    @extend %flex;
+    flex-direction: column;
+    gap: clamp(2.6rem, 3.66vw, 6rem);
+    height: 50%;
+    background-color: var(--footer-background);
+    padding: clamp(4.6rem, 4.9vw, 7rem) 2.6rem;
+    .logo {
+      svg {
+        path {
+          fill: var(--footer);
+        }
+      }
+    }
+
+    nav {
+      @extend %flex;
+      ul {
+        @extend %flex;
+        gap: 4.6rem;
+        li {
+          a {
+            font-family: "Barlow", sans-serif;
+            font-size: 1.8rem;
+            font-weight: 500;
+            color: var(--footer);
+          }
+        }
+      }
+    }
+
+    .socials {
+      @extend %flex;
+      gap: 5rem;
+      margin-top: 0.6rem;
+      svg {
+        &:hover {
+          path {
+            fill: var(--White);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 580px) {
+  footer {
+    .img-wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 50%);
+    }
+  }
+}

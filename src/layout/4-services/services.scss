@@ -1,0 +1,73 @@
+@use "../../a-sass/base/abstracts.scss" as *;
+
+.services {
+  @include flex();
+  & > * {
+    height: 100%;
+
+    flex-basis: 50%;
+    flex-shrink: 0;
+    flex-grow: 0;
+
+    padding: 0 clamp(2.6rem, 7vw, 10rem);
+
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    @include flex($juco: center, $alite: flex-end);
+    .img-div {
+      height: 100%;
+    }
+  }
+
+  .text {
+    max-width: 42rem;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 3rem;
+    p {
+      margin-top: clamp(2rem, 2.4vw, 3.6rem);
+      min-height: 1.66em * 3;
+    }
+  }
+
+  .left {
+    background-image: url("/images/desktop/image-graphic-design.jpg");
+    .text {
+      > * {
+        color: var(--graphic-design-text);
+      }
+    }
+  }
+
+  .right {
+    background-image: url("/images/desktop/image-photography.jpg");
+    .text {
+      > * {
+        color: var(--photography-text);
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .services {
+    & {
+      flex-direction: column;
+    }
+    & > * {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 175px) {
+  .services {
+    .left {
+      background-image: url("/images/mobile/image-graphic-design.jpg");
+    }
+    .right {
+      background-image: url("/images/mobile/image-photography.jpg");
+    }
+  }
+}

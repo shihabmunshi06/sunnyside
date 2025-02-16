@@ -1,0 +1,151 @@
+@use "../../a-sass/base/abstracts.scss" as *;
+
+.top {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 2;
+
+  @extend %flex;
+
+  .bg-1,
+  .bg-2 {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    top: 0;
+  }
+  .bg-1 {
+    left: 0;
+    background-color: var(--photography-background);
+    background-color: var(--Yellow);
+
+    background-color: var(--Blue);
+  }
+  .bg-2 {
+    right: 0;
+    background-color: var(--Soft-red);
+    background-color: var(--graphic-design-background);
+
+    background-color: var(--Blue);
+  }
+
+  .top-wrapper {
+    @include flex($juco: space-between, $alite: center);
+    padding: max(2rem, 2vw) max(1.8rem, 3.3vw);
+
+    .logo {
+      z-index: 2;
+      @extend %flex;
+    }
+
+    .right-side {
+      z-index: 2;
+      @extend %flex;
+      gap: 6rem;
+      nav {
+        @include flex($juco: space-between, $alite: center);
+        color: var(--White);
+
+        ul {
+          @extend %flex;
+          gap: 4.6rem;
+          li {
+            a {
+              font-family: "Barlow", sans-serif;
+              font-weight: 500;
+              font-size: 1.8rem;
+              // color: var(--Very-dark-desaturated-blue);
+            }
+          }
+        }
+      }
+
+      .contact {
+        @extend %flex;
+        width: 14rem;
+        height: 6rem;
+        border-radius: 3rem;
+        background-color: var(--White);
+        // background-color: var(--Yellow);
+        a {
+          color: var(--Very-dark-desaturated-blue);
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .top {
+    .bg-2 {
+      width: 100%;
+    }
+    .bg-1 {
+      display: none;
+    }
+    .top-wrapper {
+      .right-side {
+        & > .contact {
+          display: none;
+        }
+        .menu {
+          cursor: pointer;
+          display: inline-block;
+        }
+        nav {
+          background-color: var(--White);
+          color: var(--Very-Dark-Grayish-Blue);
+          z-index: 3;
+          position: absolute;
+          right: 0;
+          top: 100%;
+          width: 100%;
+
+          margin-top: calc(max(2rem, 2vw) + 3.4rem);
+          padding: 4rem 0 3rem;
+
+          transition: clip-path 0.5s ease;
+          clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+
+          &.active {
+            clip-path: polygon(
+              0 calc(0% - 3rem),
+              100% calc(0% - 3rem),
+              100% 100%,
+              0 100%
+            );
+          }
+
+          &:before {
+            content: "";
+            height: 3rem;
+            width: 3rem;
+            background-color: var(--White);
+            position: absolute;
+            bottom: 98%;
+            right: 0;
+            clip-path: polygon(100% 0, 100% 100%, 0 100%);
+          }
+
+          ul {
+            height: 100%;
+            width: 100%;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            .contact {
+              background-color: var(--Yellow);
+              transform: translateY(-1rem);
+              a {
+                font-family: "Fraunces", serif;
+                font-weight: 900;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

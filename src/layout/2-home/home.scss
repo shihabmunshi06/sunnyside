@@ -1,0 +1,24 @@
+@use "../../a-sass/base/abstracts.scss" as *;
+
+.home {
+  @include flex($juco: flex-start, $alite: center);
+  flex-direction: column;
+  gap: 6.8rem;
+
+  background-image: url("/images/desktop/image-header.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+
+  h1 {
+    text-align: center;
+    margin-top: 6rem;
+    color: var(--White);
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .home {
+    background-image: url("/images/mobile/image-header.jpg");
+  }
+}

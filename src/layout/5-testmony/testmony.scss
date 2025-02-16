@@ -1,0 +1,114 @@
+@use "../../a-sass/base/abstracts.scss" as *;
+
+.testmony {
+  height: fit-content !important;
+  padding: 8rem 0 12rem;
+  & > h2 {
+    color: var(--Dark-grayish-blue);
+    text-align: center;
+    margin-bottom: 5rem;
+    text-transform: uppercase;
+    letter-spacing: 26%;
+    font-size: clamp(1.2rem, calc(1.4vw), 2rem);
+  }
+  .caraousel {
+    padding: 0 max(1.8rem, 3.3vw);
+
+    .testmony-wrapper {
+      @include flex();
+      overflow-x: hidden;
+      height: auto;
+
+      transition: transform 0.4s ease;
+      .card {
+        padding: 0 2rem;
+
+        flex-basis: 33.33%;
+        flex-shrink: 0;
+        flex-grow: 0;
+
+        width: 33.33%;
+
+        transition: transform 0.5s ease-in;
+        text-align: center;
+
+        .content {
+          @include flex($juco: flex-start, $alite: center);
+          flex-direction: column;
+          .img-div {
+            margin-bottom: 2rem;
+
+            height: 5rem;
+            width: 5rem;
+            border-radius: 50%;
+            img {
+              border-radius: inherit;
+            }
+          }
+          .comment {
+            color: var(--Very-dark-grayish-blue);
+            margin-bottom: 3rem;
+          }
+          .clientName {
+            font-family: "Fraunces", serif;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            line-height: normal;
+          }
+          .job {
+            color: var(--Grayis-blue);
+            font-size: 1.8rem;
+            line-height: normal;
+          }
+        }
+      }
+    }
+
+    .buttons {
+      // display: none;
+      position: absolute;
+      right: max(1.8rem, 3.3vw);
+      top: 100%;
+      margin-top: 4rem;
+
+      @extend %flex;
+      gap: 2rem;
+
+      button {
+        background-color: var(--Yellow);
+        height: 2.6rem;
+        width: 8rem;
+        border-radius: 4px;
+        @extend %flex;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .testmony {
+    .caraousel {
+      .testmony-wrapper {
+        .card {
+          flex-basis: 50%;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 520px) {
+  .testmony {
+    padding: 4rem 0;
+    .caraousel {
+      .testmony-wrapper {
+        .card {
+          flex-basis: 100%;
+        }
+      }
+      .buttons {
+        display: none;
+      }
+    }
+  }
+}
